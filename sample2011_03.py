@@ -6,9 +6,9 @@ http://www.zenjouken.com/?action=common_download_main&upload_id=527
 """
 
 import CHaser
-from enum import Enum
+from enum import IntEnum
 
-class Mode(Enum):
+class Mode(IntEnum):
     Down = 1
     RIGHT = 2
     UP = 3
@@ -16,7 +16,7 @@ class Mode(Enum):
     ITEM = 20
     ATACK = 90
 
-class Tile(Enum):
+class Tile(IntEnum):
     ENEMY = 1
     BLOCK = 2
     ITEM = 3
@@ -31,10 +31,10 @@ def main():
     while True:
         value = client.get_ready()
 
-        if (Tile.ENEMY in [x for x in value if x % 2 > 1]):
+        if Tile.ENEMY in value[1::2]:
             cur_mode = Mode.ATACK
 
-        if (Tile.ITEM in [x for x in value if x % 2 == 0]):
+        if Tile.ITEM in value[1::2]:
             old_mode = cur_mode
             cur_mode = Mode.ITEM
 
