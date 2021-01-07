@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+"""
+全国高校生プログラミングコンテスト CHaser 2012 ステップアップヒント 1
+http://www.zenjouken.com/?action=common_download_main&upload_id=491
+"""
 
 import CHaser
 
