@@ -33,7 +33,7 @@ def main():
         print("クールで競技サーバに接続しました。")
     else:
         cur_mode = Mode.UP
-        print("クールで競技サーバに接続しました。")
+        print("ホットで競技サーバに接続しました。")
 
     old_mode = Mode.Down
 
