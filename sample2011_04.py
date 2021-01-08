@@ -17,6 +17,7 @@ class Mode(Enum):
     ATACK = 90
 
 class Tile(IntEnum):
+    NORMAL = 0
     ENEMY = 1
     BLOCK = 2
     ITEM = 3
