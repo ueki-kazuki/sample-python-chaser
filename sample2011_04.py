@@ -8,6 +8,7 @@ http://www.zenjouken.com/?action=common_download_main&upload_id=533
 import CHaser
 from enum import Enum, IntEnum
 
+
 class Mode(Enum):
     Down = 1
     RIGHT = 2
@@ -16,17 +17,18 @@ class Mode(Enum):
     ITEM = 20
     ATACK = 90
 
+
 class Tile(IntEnum):
     NORMAL = 0
     ENEMY = 1
     BLOCK = 2
     ITEM = 3
 
+
 def main():
     client = CHaser.Client()
     turn = 0
     item = 0
-
 
     if client.port == 2009:
         cur_mode = Mode.Down
@@ -37,7 +39,6 @@ def main():
 
     old_mode = Mode.Down
 
-    value = []
     while True:
         turn += 1
         print("\nturn={}、mode={}、item={}".format(turn, cur_mode, item))
@@ -104,6 +105,6 @@ def main():
                 value = client.put_down()
             cur_mode = old_mode
 
+
 if __name__ == "__main__":
     main()
-
