@@ -50,7 +50,6 @@ class Client:
         """
         try:
             if gr_flag:
-                print("Waiting response...")
                 responce = self.client.recv(4096)
 
                 if(b'@' in responce):
