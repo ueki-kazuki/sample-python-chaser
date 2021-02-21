@@ -7,6 +7,7 @@ http://www.zenjouken.com/?action=common_download_main&upload_id=491
 
 import CHaser
 
+
 def main():
     client = CHaser.Client()
 
