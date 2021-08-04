@@ -1,13 +1,31 @@
 import socket
 import ipaddress
 import os
+import getopt
+import sys
 
 
 class Client:
     def __init__(self):
-        self.port = input("ポート番号を入力してください → ")
-        self.name = input("ユーザー名を入力してください → ")[:15]
-        self.host = input("サーバーのIPアドレスを入力してください → ")
+        if len(sys.argv) > 1:
+            try:
+                optlist, args = getopt.getopt(sys.argv[1:], 'h:n:p:')
+            except getopt.GetoptError as err:
+                print(err)  # will print something like "option -a not recognized"
+                sys.exit(2)
+            for o, a in optlist:
+                if o == '-n':
+                    self.name = a
+                elif o == '-p':
+                    self.port = a
+                elif o == '-h':
+                    self.host = a
+                else:
+                    assert False, "unhandled option"
+        else:
+            self.port = input("ポート番号を入力してください → ")
+            self.name = input("ユーザー名を入力してください → ")[:15]
+            self.host = input("サーバーのIPアドレスを入力してください → ")
 
         if not self.port:
             self.port = 2009
